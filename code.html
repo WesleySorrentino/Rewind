@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>App Name: A Coding Project by Wesley Sorrentino</title>
+    <title>Rewind: A Coding Project by Wesley Sorrentino</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -20,7 +20,7 @@
 
     <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
         <div class="container-fluid">
-            <a class="navbar-brand" href="index.html"><img src="Img/code-solid.png" class="d-inline-block align-text-top" width="30" height="24"> APP NAME</a>
+            <a class="navbar-brand" href="index.html"><img src="Img/code-solid.png" class="d-inline-block align-text-top" width="30" height="24"> Rewind</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
                 aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,7 +37,7 @@
                         <a class="nav-link active" href="code.html">The Code</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" target="_blank" href="#">Git Repo</a>
+                        <a class="nav-link" target="_blank" href="https://github.com/WesleySorrentino/Rewind">Git Repo</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" target="_blank" href="https://wesleysorrentino.github.io/">About</a>
@@ -49,21 +49,48 @@
 
     <main class="flex-shrink-0">
         <div class="container py-4 px-5 mt-5">
-            <h2 class="border-1 border-bottom border-dark">The Code for APP NAME</h2>
+            <h2 class="border-1 border-bottom border-dark">The Code for Rewind</h2>
             <div class="row row-cols-1 row-cols-lg-2">
                 <div class="col-lg-8">
                     <pre class="line-numbers"><code class="language-javascript">
-                        //Call Hello World
-                        function helloWorld() {
-                            alert('hello world');
-                        };
+                        // Get the string from the page
+                        function getValue() {
+                            document.getElementById("alert").classList.add("invisible");
+                            let userString = document.getElementById("userString").value;
+                            let revString = resverseString(userString);
+                            displayString(revString)
+                        }
+
+                        // Reverse the String object
+                        function reverseString(userString){
+                            let revString = [];
+                            // reverse string
+                            for (let i = userString.length - 1; i >= 0; i--) {
+                                revString += userString[i];        
+                            }
+                            return revString;
+                        }
+
+                        // Display results
+                        function displayString(reverseString){
+                            // Write message to page
+                            document.getElementById("message").innerHTML = `Your string reversed is: ${reverseString}`
+                            // Show alert box
+                            document.getElementById("alert").classList.remove("invisible");
+                        }
                     </code>
                     </pre>
                 </div> 
                 <div class="col-lg-4">
-                    <p>The Code is structered in one function.</p>
-                    <h5>Hello World</h5>
-                    <p>Hello World is a function that displays an alert with a message of "Hello World"</p>
+                    <p>The Code is structered into three functions.</p>
+                    <h5>getValue</h5>
+                    <p>getValue accepts(gets) the user input from the page. It utilizes getElementById to pull the vallues from the page. 
+                        It passes those values to the <strong>reverseString</strong> function. 
+                        The fuction <strong>reverseString</strong> returns the reversed string and passes that to the <strong>displayString</strong> function.</p>
+                    <h5>reverseString</h5>
+                    <p>reverseString takes in one parameter, <strong>userString</strong>. We create a variable (revString) that holds an array. Then a For loop is used to iterate through <strong>userString</strong> backwards then return the results.</p>
+                    <h5>displayString</h5>
+                    <p>displayString takes in one parameter, the reversed string. It then removes the class <strong>invisible</strong> and displays the alert box housing the reversed string.</p>
                 </div>
             </div>
 
